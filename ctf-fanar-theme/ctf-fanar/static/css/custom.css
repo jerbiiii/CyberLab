@@ -1,35 +1,86 @@
 :root {
-  --bg-primary: #faf6f0;
-  --bg-secondary: #ffffff;
-  --text-primary: #3e2723;
-  --accent: #a9745b;
-  --accent-light: #d7ccc8;
-  --border-color: #e0d6cc;
+  --bg-primary: #1b2430;
+  --bg-secondary: #243040;
+  --bg-card: #28384a;
+  --text-primary: #d6e4e8;
+  --text-muted: #8fa3b3;
+  --accent: #39ff88;
+  --accent-cyan: #39d9ff;
+  --border-color: #3a4a5c;
 }
 
-html body {
+html, body {
   background-color: var(--bg-primary) !important;
   color: var(--text-primary) !important;
 }
 
-nav.navbar, nav.navbar.navbar-dark, nav.navbar.bg-dark {
+h1, h2, h3, h4, .navbar-brand {
+  font-family: "Courier New", monospace !important;
+  letter-spacing: 0.5px;
+}
+
+nav.navbar {
   background-color: var(--bg-secondary) !important;
+  border-bottom: 1px solid var(--accent) !important;
 }
 
 .navbar .nav-link, .navbar-brand {
-  color: var(--text-primary) !important;
+  color: var(--accent) !important;
+}
+
+.navbar .nav-link:hover {
+  color: var(--accent-cyan) !important;
 }
 
 .card, .modal-content {
-  background-color: var(--bg-secondary) !important;
-  border-color: var(--border-color) !important;
+  background-color: var(--bg-card) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 4px !important;
+  transition: all 0.2s ease;
 }
 
-a, a:hover {
+.card:hover {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 10px rgba(57, 255, 136, 0.25) !important;
+}
+
+a {
+  color: var(--accent-cyan) !important;
+}
+
+a:hover {
   color: var(--accent) !important;
 }
 
 .btn-primary {
   background-color: var(--accent) !important;
   border-color: var(--accent) !important;
+  color: #0d1117 !important;
+  font-family: "Courier New", monospace !important;
+  font-weight: bold;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-cyan) !important;
+  border-color: var(--accent-cyan) !important;
+}
+
+input, textarea, select {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 6px rgba(57, 255, 136, 0.4) !important;
+}
+
+::selection {
+  background-color: var(--accent);
+  color: #0d1117;
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
 }
