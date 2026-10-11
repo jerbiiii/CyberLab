@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head><title>Café Saffran — Programme de Fidélité</title></head>
+<body>
+    <h2>Générer votre certificat de fidélité</h2>
+    <form method="POST">
+        Votre nom : <input name="nom" placeholder="ex: Amira">
+        <input type="submit" value="Générer">
+    </form>
+    {% if error %}<p style="color:red">{{ error }}</p>{% endif %}
+    {% if certificat %}
+    <div>{{ certificat | safe }}</div>
+    {% endif %}
+</body>
+</html>

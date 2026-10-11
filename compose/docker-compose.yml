@@ -61,3 +61,10 @@ services:
       - lab_targets
     ports:
       - "5005:5005"
+  cafe-fidelite:
+    build: ../challenges/cafe-fidelite
+    container_name: cafe_fidelite
+    networks:
+      - lab_targets
+    ports:
+      - "5006:5006"
