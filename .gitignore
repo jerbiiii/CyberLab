@@ -1,0 +1,24 @@
+# CTFd (cloné séparément, voir README)
+CTFd/
+
+# Docker / données générées
+**/*.db
+**/exfil.log
+
+# Fichiers Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Fichiers sensibles
+cookies.txt
+*.pem
+*.key
+
+# Système
+.DS_Store
+*.log
+
+# Ansible
+*.retry

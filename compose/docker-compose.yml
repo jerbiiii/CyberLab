@@ -1,0 +1,63 @@
+networks:
+  lab_targets:
+    driver: bridge
+  lab_attack:
+    driver: bridge
+
+services:
+  kali:
+    image: kalilinux/kali-rolling
+    container_name: kali_attacker
+    command: sleep infinity
+    tty: true
+    stdin_open: true
+    networks:
+      - lab_targets
+      - lab_attack
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+
+  sqli-login:
+    build: ../challenges/sqli-login
+    container_name: sqli_login
+    networks:
+      - lab_targets
+    ports:
+      - "5000:5000"
+
+  cafe-menu-search:
+    build: ../challenges/cafe-menu-search
+    container_name: cafe_menu_search
+    networks:
+      - lab_targets
+    ports:
+      - "5001:5001"
+  cafe-avis:
+    build: ../challenges/cafe-avis
+    container_name: cafe_avis
+    networks:
+      - lab_targets
+    ports:
+      - "5002:5002"
+  cafe-commandes:
+    build: ../challenges/cafe-commandes
+    container_name: cafe_commandes
+    networks:
+      - lab_targets
+    ports:
+      - "5003:5003"
+  cafe-api:
+    build: ../challenges/cafe-api
+    container_name: cafe_api
+    networks:
+      - lab_targets
+    ports:
+      - "5004:5004"
+  cafe-cv-upload:
+    build: ../challenges/cafe-cv-upload
+    container_name: cafe_cv_upload
+    networks:
+      - lab_targets
+    ports:
+      - "5005:5005"

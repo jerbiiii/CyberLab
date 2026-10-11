@@ -1,0 +1,20 @@
+---
+- name: Déploiement complet de CyberLab
+  hosts: lab
+  gather_facts: true
+  vars_files:
+    - group_vars/all.yml
+
+  roles:
+    - docker
+    - cyberlab-challenges
+    - ctfd
+
+  post_tasks:
+    - name: Résumé du déploiement
+      debug:
+        msg:
+          - "✅ Docker installé et configuré"
+          - "✅ Challenges CyberLab démarrés (ports 5000-5005)"
+          - "✅ CTFd démarré (port 8080)"
+          - "Accès CTFd : http://localhost:8080"

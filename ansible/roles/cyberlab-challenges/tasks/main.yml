@@ -1,0 +1,20 @@
+---
+- name: Vérifier que le fichier docker-compose.yml existe
+  stat:
+    path: "{{ compose_dir }}/docker-compose.yml"
+  register: compose_file
+
+- name: Échouer si le compose n'existe pas
+  fail:
+    msg: "docker-compose.yml introuvable dans {{ compose_dir }}"
+  when: not compose_file.stat.exists
+
+- name: Lancer tous les services du lab (build + up)
+  command: docker compose -f docker-compose.yml up -d --build
+  args:
+    chdir: "{{ compose_dir }}"
+  register: compose_up
+
+- name: Afficher le résultat
+  debug:
+    var: compose_up.stdout_lines

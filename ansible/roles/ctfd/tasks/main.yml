@@ -1,0 +1,20 @@
+---
+- name: Vérifier que CTFd est bien cloné
+  stat:
+    path: "{{ ctfd_dir }}/docker-compose.yml"
+  register: ctfd_compose
+
+- name: Échouer si CTFd n'est pas présent
+  fail:
+    msg: "CTFd introuvable dans {{ ctfd_dir }}. Clone-le d'abord avec git clone https://github.com/CTFd/CTFd.git"
+  when: not ctfd_compose.stat.exists
+
+- name: Lancer CTFd
+  command: docker compose up -d
+  args:
+    chdir: "{{ ctfd_dir }}"
+  register: ctfd_up
+
+- name: Afficher le résultat
+  debug:
+    var: ctfd_up.stdout_lines

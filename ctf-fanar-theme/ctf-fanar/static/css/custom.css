@@ -1,0 +1,35 @@
+:root {
+  --bg-primary: #faf6f0;
+  --bg-secondary: #ffffff;
+  --text-primary: #3e2723;
+  --accent: #a9745b;
+  --accent-light: #d7ccc8;
+  --border-color: #e0d6cc;
+}
+
+html body {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+nav.navbar, nav.navbar.navbar-dark, nav.navbar.bg-dark {
+  background-color: var(--bg-secondary) !important;
+}
+
+.navbar .nav-link, .navbar-brand {
+  color: var(--text-primary) !important;
+}
+
+.card, .modal-content {
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+}
+
+a, a:hover {
+  color: var(--accent) !important;
+}
+
+.btn-primary {
+  background-color: var(--accent) !important;
+  border-color: var(--accent) !important;
+}

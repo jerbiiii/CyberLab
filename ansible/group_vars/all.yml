@@ -1,0 +1,3 @@
+cyberlab_dir: "{{ ansible_env.HOME }}/cyberlab"
+compose_dir: "{{ cyberlab_dir }}/compose"
+ctfd_dir: "{{ cyberlab_dir }}/CTFd"

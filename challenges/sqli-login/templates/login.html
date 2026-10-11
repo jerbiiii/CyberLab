@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><title>Café Login</title></head>
+<body>
+    <h2>Connexion</h2>
+    <form method="POST">
+        Utilisateur: <input name="username"><br>
+        Mot de passe: <input name="password" type="password"><br>
+        <input type="submit" value="Connexion">
+    </form>
+    {% if result %}<p>{{ result }}</p>{% endif %}
+</body>
+</html>

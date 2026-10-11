@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head><title>Café Saffran — Avis clients</title></head>
+<body>
+    <h2>Laisser un avis</h2>
+    <form method="POST">
+        Nom: <input name="auteur"><br>
+        Commentaire:<br>
+        <textarea name="commentaire" rows="3" cols="40"></textarea><br>
+        <input type="submit" value="Publier">
+    </form>
+
+    <h3>Avis récents</h3>
+    {% for auteur, commentaire in avis_list %}
+    <div style="border:1px solid #ccc; margin:5px; padding:5px;">
+        <b>{{ auteur }}</b><br>
+        {{ commentaire | safe }}
+    </div>
+    {% endfor %}
+</body>
+</html>
