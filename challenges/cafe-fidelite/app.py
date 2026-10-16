@@ -39,5 +39,5 @@ def fidelite():
 
 if __name__ == "__main__":
     with open("/flag.txt", "w") as f:
-        f.write("FLAG{ssti_j1nj4_bl4ckl1st_byp4ss_rce}")
+        f.write(os.environ.get("CHALLENGE_FLAG", "FLAG{ssti_j1nj4_bl4ckl1st_byp4ss_rce}"))
     app.run(host="0.0.0.0", port=5006)

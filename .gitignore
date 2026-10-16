@@ -22,3 +22,5 @@ cookies.txt
 
 # Ansible
 *.retry
+compose/.env
+**/.env

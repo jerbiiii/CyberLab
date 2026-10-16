@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><title>Café Saffran — Connexion</title></head>
+<body>
+    <h2>Connexion client</h2>
+    <form method="POST">
+        Utilisateur: <input name="username"><br>
+        Mot de passe: <input name="password" type="password"><br>
+        <input type="submit" value="Connexion">
+    </form>
+    {% if error %}<p style="color:red">{{ error }}</p>{% endif %}
+</body>
+</html>

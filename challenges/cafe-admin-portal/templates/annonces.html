@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head><title>Tableau d'annonces — Café Saffran</title></head>
+<body>
+    <h2>Annonces internes</h2>
+    <form method="POST">
+        Titre: <input name="titre"><br>
+        URL: <input name="url"><br>
+        <button type="submit">Publier</button>
+    </form>
+    <ul>
+    {% for titre, url in annonces %}
+        <li><b>{{ titre }}</b> — {{ url }}</li>
+    {% endfor %}
+    </ul>
+</body>
+</html>

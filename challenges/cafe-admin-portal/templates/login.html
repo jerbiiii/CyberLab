@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head><title>Café Saffran — Portail Admin</title></head>
+<body>
+    <h2>Connexion Admin</h2>
+    <form method="POST">
+        Utilisateur: <input name="username"><br>
+        Mot de passe: <input type="password" name="password"><br>
+        <button type="submit">Se connecter</button>
+    </form>
+    {% if error %}<p style="color:red">{{ error }}</p>{% endif %}
+</body>
+</html>

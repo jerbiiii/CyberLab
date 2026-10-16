@@ -3,6 +3,7 @@ import sqlite3, os, uuid
 
 app = Flask(__name__)
 DB = "commandes.db"
+FLAG = os.environ.get("CHALLENGE_FLAG", "FLAG{1d0r_br0k3n_4cc3ss_c0ntr0l}")
 
 def init_db():
     if not os.path.exists(DB):
@@ -23,7 +24,7 @@ def init_db():
         commandes = [
             (1, 1, "Cappuccino", "Commande normale, rien de spécial."),
             (2, 2, "Croissant x2", "Paiement par carte, reçu envoyé par email."),
-            (3, 3, "Thé vert", "Note interne admin : FLAG{1d0r_br0k3n_4cc3ss_c0ntr0l}"),
+            (3, 3, "Thé vert", f"Note interne admin : {FLAG}"),
         ]
         conn.executemany("INSERT INTO commandes (id, user_id, item, details) VALUES (?, ?, ?, ?)", commandes)
         conn.commit()

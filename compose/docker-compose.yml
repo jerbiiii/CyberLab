@@ -21,6 +21,8 @@ services:
   sqli-login:
     build: ../challenges/sqli-login
     container_name: sqli_login
+    environment:
+      - CHALLENGE_FLAG=${SQLI_LOGIN_FLAG}
     networks:
       - lab_targets
     ports:
@@ -29,42 +31,78 @@ services:
   cafe-menu-search:
     build: ../challenges/cafe-menu-search
     container_name: cafe_menu_search
+    environment:
+      - CHALLENGE_FLAG=${MENU_SEARCH_FLAG}
     networks:
       - lab_targets
     ports:
       - "5001:5001"
+
   cafe-avis:
     build: ../challenges/cafe-avis
     container_name: cafe_avis
+    environment:
+      - CHALLENGE_FLAG=${XSS_FLAG}
     networks:
       - lab_targets
     ports:
       - "5002:5002"
+
   cafe-commandes:
     build: ../challenges/cafe-commandes
     container_name: cafe_commandes
+    environment:
+      - CHALLENGE_FLAG=${IDOR_FLAG}
     networks:
       - lab_targets
     ports:
       - "5003:5003"
+
   cafe-api:
     build: ../challenges/cafe-api
     container_name: cafe_api
+    environment:
+      - CHALLENGE_FLAG=${JWT_FLAG}
     networks:
       - lab_targets
     ports:
       - "5004:5004"
+
   cafe-cv-upload:
     build: ../challenges/cafe-cv-upload
     container_name: cafe_cv_upload
+    environment:
+      - CHALLENGE_FLAG=${UPLOAD_FLAG}
     networks:
       - lab_targets
     ports:
       - "5005:5005"
+
   cafe-fidelite:
     build: ../challenges/cafe-fidelite
     container_name: cafe_fidelite
+    environment:
+      - CHALLENGE_FLAG=${SSTI_FLAG}
     networks:
       - lab_targets
     ports:
       - "5006:5006"
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: cafe_mailhog
+    networks:
+      - lab_targets
+    ports:
+      - "8025:8025"
+      - "1025:1025"
+
+  admin-portal:
+    build: ../challenges/cafe-admin-portal
+    container_name: cafe_admin_portal
+    environment:
+      - CHALLENGE_FLAG=${PHISHING_FLAG}
+    networks:
+      - lab_targets
+    ports:
+      - "5007:5007"

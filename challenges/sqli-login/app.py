@@ -3,6 +3,7 @@ import sqlite3, os
 
 app = Flask(__name__)
 DB = "users.db"
+FLAG = os.environ.get("CHALLENGE_FLAG", "FLAG{sql1_1nj3ct10n_byp4ss}")
 
 def init_db():
     if not os.path.exists(DB):
@@ -29,7 +30,7 @@ def login():
         if user:
             result = f"Bienvenue {user[1]} (role: {user[3]})"
             if user[3] == "admin":
-                result += " — FLAG{sql1_1nj3ct10n_byp4ss}"
+                result += f" — {FLAG}"
         else:
             result = "Identifiants invalides"
     return render_template("login.html", result=result)

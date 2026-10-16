@@ -4,6 +4,7 @@ import jwt, sqlite3, os, datetime, uuid
 SECRET = "cafe123"  # secret volontairement faible, présent dans une wordlist courante
 app = Flask(__name__)
 DB = "orders.db"
+FLAG = os.environ.get("CHALLENGE_FLAG", "FLAG{jwt_w34k_s3cr3t_b0l4_ch41n}")
 
 def init_db():
     if not os.path.exists(DB):
@@ -18,7 +19,7 @@ def init_db():
 
         conn.execute("INSERT INTO orders (id, user_id, item, details) VALUES (1,1,'Cappuccino','RAS')")
         conn.execute("INSERT INTO orders (id, user_id, item, details) VALUES (2,2,'Croissant','RAS')")
-        conn.execute("INSERT INTO orders (id, user_id, item, details) VALUES (50,3,'Commande admin','FLAG{jwt_w34k_s3cr3t_b0l4_ch41n}')")
+        conn.execute("INSERT INTO orders (id, user_id, item, details) VALUES (?,?,?,?)", (50, 3, "Commande admin", FLAG))
         conn.commit()
         conn.close()
         print(f"[DEBUG] admin password (non récupérable normalement): {admin_pass}")
